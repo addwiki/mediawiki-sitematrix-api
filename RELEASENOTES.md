@@ -5,4 +5,4 @@ These are the release notes for the [mediawiki-sitematrix-api](README.md).
 Initial release with the following features:
 
 * Site and SiteList objects
-* SiteListGetter service
+* SiteListGetter service accessible using the MediawikiSitematrixFactory
