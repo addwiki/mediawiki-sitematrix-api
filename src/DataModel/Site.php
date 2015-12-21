@@ -30,16 +30,23 @@ class Site {
 	private $sitename;
 
 	/**
+	 * @var string[]
+	 */
+	private $flags;
+
+	/**
 	 * @param string $url
 	 * @param string $dbname
 	 * @param string $code
 	 * @param string $sitename
+	 * @param string[] $flags
 	 */
-	public function __construct( $url, $dbname, $code, $sitename ) {
+	public function __construct( $url, $dbname, $code, $sitename, array $flags = array() ) {
 		$this->url = $url;
 		$this->dbname = $dbname;
 		$this->code = $code;
 		$this->sitename = $sitename;
+		$this->flags = $flags;
 	}
 
 	/**
@@ -76,6 +83,13 @@ class Site {
 	 */
 	public function getSiteName() {
 		return $this->sitename;
+	}
+
+	/**
+	 * @return string[]
+	 */
+	public function getFlags() {
+		return $this->flags;
 	}
 
 
