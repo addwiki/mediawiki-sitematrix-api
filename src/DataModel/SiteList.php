@@ -60,4 +60,13 @@ class SiteList {
 		return new SiteList( $siteList );
 	}
 
+	/**
+	 * @param string $flag
+	 *
+	 * @return SiteList
+	 */
+	public function getSiteListForFlag( $flag ) {
+		//TODO implement me
+	}
+
 }
