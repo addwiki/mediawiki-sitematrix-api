@@ -1,8 +1,11 @@
 <?php
 
+namespace Mediawiki\Sitematrix\Api\Test;
+
 use Mediawiki\Api\MediawikiApi;
 use Mediawiki\Api\SimpleRequest;
 use Mediawiki\Sitematrix\Api\Service\SiteListGetter;
+use PHPUnit_Framework_TestCase;
 
 /**
  * @author Addshore

@@ -1,6 +1,6 @@
 <?php
 
-namespace DataModel;
+namespace Mediawiki\Sitematrix\Api\Test;
 
 use Mediawiki\Sitematrix\DataModel\Site;
 use Mediawiki\Sitematrix\DataModel\SiteList;
