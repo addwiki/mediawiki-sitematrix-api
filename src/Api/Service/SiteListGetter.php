@@ -1,14 +1,17 @@
 <?php
 
-namespace Mediawiki\Sitematrix\Api;
+namespace Mediawiki\Sitematrix\Api\Service;
 
 use Mediawiki\Api\MediawikiApi;
+use Mediawiki\Api\SimpleRequest;
 use Mediawiki\Sitematrix\DataModel\SiteList;
+use Mediawiki\Sitematrix\DataModel\Site;
 
 /**
  * @access private
  *
  * @author Addshore
+ * @author Tarrow
  */
 class SiteListGetter {
 
@@ -30,9 +33,25 @@ class SiteListGetter {
 	 * @return SiteList
 	 */
 	public function getSiteList() {
-		//TODO implement me
-		//use action=sitematrix to construct a colleciton of sites
-		//and add them to a SiteList object that is then returned
+		$sitematrixResult = $this->api->getRequest( new SimpleRequest( 'sitematrix' ) );
+		unset( $sitematrixResult['sitematrix']['count'] );
+
+		$siteListArray = array();
+		foreach ( $sitematrixResult['sitematrix'] as $key => $siteGroup ) {
+			foreach ( $siteGroup['site'] as $details ) {
+				$siteListArray[] =
+					new Site(
+						$details['url'],
+						$details['dbname'],
+						$details['code'],
+						$details['sitename']
+					);
+			}
+		}
+
+		$siteList = new SiteList( $siteListArray );
+
+		return $siteList;
 	}
 
 }
