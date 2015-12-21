@@ -35,11 +35,12 @@ class SiteList {
 	 * @return Site|null
 	 */
 	public function getSiteFromDbName( $dbName ) {
-		foreach( $this->sites as $site ) {
-			if( $site->getDbName()  == $dbName ) {
+		foreach ( $this->sites as $site ) {
+			if ( $site->getDbName() == $dbName ) {
 				return $site;
 			}
 		}
+
 		return null;
 	}
 
@@ -50,11 +51,12 @@ class SiteList {
 	 */
 	public function getSiteListForCode( $code ) {
 		$siteList = array();
-		foreach ($this->sites as $site) {
-			if( $site->getCode() == $code) {
+		foreach ( $this->sites as $site ) {
+			if ( $site->getCode() == $code ) {
 				$siteList[] = $site;
 			}
 		}
+
 		return new SiteList( $siteList );
 	}
 

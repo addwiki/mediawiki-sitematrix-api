@@ -115,7 +115,10 @@ class SiteListGetterTest extends PHPUnit_Framework_TestCase {
 			$this->assertEquals( $expectedSites[$site->getDbName()]['url'], $site->getUrl() );
 			$this->assertEquals( $expectedSites[$site->getDbName()]['dbname'], $site->getDbName() );
 			$this->assertEquals( $expectedSites[$site->getDbName()]['code'], $site->getCode() );
-			$this->assertEquals( $expectedSites[$site->getDbName()]['sitename'], $site->getSiteName() );
+			$this->assertEquals(
+				$expectedSites[$site->getDbName()]['sitename'],
+				$site->getSiteName()
+			);
 		}
 	}
 
