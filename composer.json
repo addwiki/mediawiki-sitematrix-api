@@ -2,7 +2,9 @@
 	"name": "addwiki/mediawiki-sitematrix-api",
 	"type": "library",
 	"description": "A Mediawiki api lib for the Sitematrix extension",
-	"keywords": ["Mediawiki"],
+	"keywords": [
+		"Mediawiki"
+	],
 	"license": "GPL-2.0+",
 	"authors": [
 		{
@@ -10,16 +12,11 @@
 		}
 	],
 	"require": {
-		"addwiki/mediawiki-api-base": "~2.0-dev"
+		"addwiki/mediawiki-api-base": "~2.0"
 	},
 	"autoload": {
 		"psr-4": {
 			"Mediawiki\\Sitematrix\\": "src/"
-		}
-	},
-	"extra": {
-		"branch-alias": {
-			"dev-master": "0.1.x-dev"
 		}
 	}
 }
