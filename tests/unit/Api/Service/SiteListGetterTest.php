@@ -1,12 +1,13 @@
 <?php
 
-namespace Mediawiki\Sitematrix\Api\Test;
+namespace Addwiki\Mediawiki\Ext\Sitematrix\Test\Integration\Api\Service;
 
-use Mediawiki\Api\MediawikiApi;
-use Mediawiki\Api\SimpleRequest;
-use Mediawiki\Sitematrix\Api\Service\SiteListGetter;
-use Mediawiki\Sitematrix\DataModel\Site;
-use Mediawiki\Sitematrix\DataModel\SiteList;
+use Addwiki\Mediawiki\Api\Client\MediawikiApi;
+use Addwiki\Mediawiki\Api\Client\SimpleRequest;
+use Addwiki\Mediawiki\Ext\Sitematrix\Api\Service\SiteListGetter;
+use Addwiki\Mediawiki\Ext\Sitematrix\DataModel\Site;
+use Addwiki\Mediawiki\Ext\Sitematrix\DataModel\SiteList;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -18,7 +19,7 @@ use PHPUnit\Framework\TestCase;
 class SiteListGetterTest extends TestCase {
 
 	/**
-	 * @return \PHPUnit_Framework_MockObject_MockObject|MediawikiApi
+	 * @return MockObject|MediawikiApi
 	 */
 	private function getMockApi() {
 		return $this->getMockBuilder( MediawikiApi::class )
@@ -100,8 +101,8 @@ class SiteListGetterTest extends TestCase {
 
 		$mockApi->expects( $this->once() )
 			->method( 'getRequest' )
-			->with( $this->equalTo( new SimpleRequest( 'sitematrix' ) ) )
-			->will( $this->returnValue( $siteMatrixArray ) );
+			->with( new SimpleRequest( 'sitematrix' ) )
+			->willReturn( $siteMatrixArray );
 
 		$service = new SiteListGetter( $mockApi );
 		$siteList = $service->getSiteList();
